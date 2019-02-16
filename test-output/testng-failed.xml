@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [SuiteLogin]" parallel="tests">
+  <listeners>
+    <listener class-name="generic.ListenerDemo"/>
+  </listeners>
+  <test thread-count="5" name="TestInFirefox(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="scripts.TestValidLogin">
+        <methods>
+          <include name="validLogin"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+        </methods>
+      </class> <!-- scripts.TestValidLogin -->
+      <class name="scripts.TestInValidLogin">
+        <methods>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="inValidLogin"/>
+        </methods>
+      </class> <!-- scripts.TestInValidLogin -->
+    </classes>
+  </test> <!-- TestInFirefox(failed) -->
+  <test thread-count="5" name="TestInChrome(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="scripts.TestValidLogin">
+        <methods>
+          <include name="validLogin"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+        </methods>
+      </class> <!-- scripts.TestValidLogin -->
+    </classes>
+  </test> <!-- TestInChrome(failed) -->
+</suite> <!-- Failed suite [SuiteLogin] -->
